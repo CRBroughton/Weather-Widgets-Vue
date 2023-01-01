@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const props = defineProps<{ daily: boolean }>()
+const props = defineProps<{ daily?: boolean }>()
 </script>
 
 <template>
