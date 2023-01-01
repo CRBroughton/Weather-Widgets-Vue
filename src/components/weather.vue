@@ -9,7 +9,7 @@
       <a href="https://accuweather.com">Accuweather</a>
     </div>
     <div class="weather-information">
-      <img src="http://openweathermap.org/img/wn/10d@4x.png" alt="Weather icon">
+      <img class="weather-information-icon" src="http://openweathermap.org/img/wn/10d@4x.png" alt="Weather icon">
       <div class="weather-nested-information">
         <div class="weather-warning">
           <p class="weather-temperature">
@@ -22,10 +22,42 @@
         <p>Thundershower | Lightly Polluted</p>
       </div>
     </div>
+    <div class="future-weather-container">
+      <div class="daily-weather">
+        <img class="daily-weather-information-icon" src="http://openweathermap.org/img/wn/10d@4x.png" alt="Weather icon">
+        <p>15 °</p>
+      </div>
+      <div class="daily-weather">
+        <img class="daily-weather-information-icon" src="http://openweathermap.org/img/wn/10d@4x.png" alt="Weather icon">
+        <p>15 °</p>
+      </div>
+      <div class="daily-weather">
+        <img class="daily-weather-information-icon" src="http://openweathermap.org/img/wn/10d@4x.png" alt="Weather icon">
+        <p>15 °</p>
+      </div>
+    </div>
   </div>
 </template>
 
 <style scoped>
+.daily-weather {
+  display: flex;
+  flex-direction: column;
+}
+* {
+  /* outline: 1px solid red; */
+}
+.future-weather-container {
+  display: flex;
+}
+
+.future-weather-container > * {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
 p {
   margin: 0;
   padding: 0;
@@ -53,10 +85,16 @@ p {
   align-items: center;
   justify-content: space-between;
 }
-img {
+.weather-information-icon {
   width: 120px;
   height: 120px;
 }
+
+.daily-weather-information-icon {
+  width: 100px;
+  height: 100px;
+}
+
 .weather-location {
   display: flex;
   place-items: center;
