@@ -1,5 +1,5 @@
 <script setup lang="ts">
-
+const props = defineProps<{ daily: boolean }>()
 </script>
 
 <template>
@@ -22,7 +22,7 @@
         <p>Thundershower | Lightly Polluted</p>
       </div>
     </div>
-    <div class="future-weather-container">
+    <div v-if="daily" class="future-weather-container">
       <div class="daily-weather">
         <img class="daily-weather-information-icon" src="http://openweathermap.org/img/wn/10d@4x.png" alt="Weather icon">
         <p>15 °</p>
