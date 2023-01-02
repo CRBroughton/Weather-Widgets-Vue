@@ -5,7 +5,7 @@ import { MEWeather, SMWeather, XSWeather, weather } from './components'
 <template>
   <div class="demo-container">
     <weather :daily="true" />
-    <weather />
+    <weather :warning-thresholds="{ min: 10, max: 20 }" />
     <MEWeather />
     <SMWeather />
     <XSWeather />

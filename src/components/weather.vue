@@ -3,6 +3,10 @@ import { computed } from 'vue'
 
 interface Props {
   daily?: boolean
+  warningThresholds?: {
+    min: number
+    max: number
+  }
   warningColour?: string
   bgColour?: string
 }
@@ -11,6 +15,17 @@ const props = withDefaults(defineProps<Props>(),
 
 const maxHeight = computed(() => {
   return props.daily ? '20em' : '9em'
+})
+const currentTemp = 30
+
+const dynamicWarningText = computed(() => {
+  if (props.warningThresholds) {
+    if (currentTemp > props.warningThresholds.max)
+      return 'High'
+    if (currentTemp < props.warningThresholds.min)
+      return 'Low'
+  }
+  return undefined
 })
 </script>
 
@@ -27,8 +42,8 @@ const maxHeight = computed(() => {
           <p class="weather-temperature">
             3°
           </p>
-          <div class="weather-warning-text">
-            <p>High Temperature</p>
+          <div v-if="dynamicWarningText" class="weather-warning-text">
+            <p>{{ dynamicWarningText }} Temperature</p>
           </div>
         </div>
         <p>Thundershower | Lightly Polluted</p>
