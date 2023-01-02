@@ -4,6 +4,7 @@ import { MEWeather, SMWeather, XSWeather, weather } from './components'
 
 <template>
   <div class="demo-container">
+    <weather :daily="true" />
     <weather />
     <MEWeather />
     <SMWeather />

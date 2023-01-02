@@ -25,15 +25,15 @@ const props = defineProps<{ daily?: boolean }>()
     <div v-if="daily" class="future-weather-container">
       <div class="daily-weather">
         <img class="daily-weather-information-icon" src="http://openweathermap.org/img/wn/10d@4x.png" alt="Weather icon">
-        <p>15 °</p>
+        <p>Mon | 15 °</p>
       </div>
       <div class="daily-weather">
         <img class="daily-weather-information-icon" src="http://openweathermap.org/img/wn/10d@4x.png" alt="Weather icon">
-        <p>15 °</p>
+        <p>Tue | 15 °</p>
       </div>
       <div class="daily-weather">
         <img class="daily-weather-information-icon" src="http://openweathermap.org/img/wn/10d@4x.png" alt="Weather icon">
-        <p>15 °</p>
+        <p>Wed | 15 °</p>
       </div>
     </div>
   </div>
