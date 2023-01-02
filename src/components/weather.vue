@@ -1,5 +1,20 @@
 <script setup lang="ts">
-const props = defineProps<{ daily?: boolean }>()
+import { computed } from 'vue'
+
+interface Props {
+  daily?: boolean
+  warningColour?: string
+  bgColour?: string
+}
+const props = defineProps<Props>()
+
+const compWarningColour = computed(() => {
+  return props.warningColour ?? '#ff6600'
+})
+
+const compBgColour = computed(() => {
+  return props.bgColour ?? '#faf9f9'
+})
 </script>
 
 <template>
@@ -50,7 +65,7 @@ p, a {
 
 .weather-container {
     padding: 1em 1.5em;
-    background-color: hsl(0, 10%, 98%);
+    background-color: v-bind(compBgColour);
     max-width: 24em;
     max-height: 20em;
     border-radius: 15px;
@@ -93,7 +108,7 @@ p, a {
 .weather-warning-text {
   color: white;
   display: flex;
-  background: rgb(255, 102, 0);
+  background-color: v-bind(compWarningColour);
   height: 2em;
   padding: 0.2em 0.6em;
   align-items: center;
