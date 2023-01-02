@@ -4,8 +4,6 @@ import MEWeather from '../components/MEWeather.vue'
 
 <template>
   <Story title="Medium Weather Component">
-    <Variant title="Default">
-      <MEWeather />
-    </Variant>
+    <MEWeather />
   </Story>
 </template>
