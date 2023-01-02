@@ -6,14 +6,11 @@ interface Props {
   warningColour?: string
   bgColour?: string
 }
-const props = defineProps<Props>()
+const props = withDefaults(defineProps<Props>(),
+  { warningColour: '#ff6600', bgColour: '#faf9f9' })
 
-const compWarningColour = computed(() => {
-  return props.warningColour ?? '#ff6600'
-})
-
-const compBgColour = computed(() => {
-  return props.bgColour ?? '#faf9f9'
+const maxHeight = computed(() => {
+  return props.daily ? '20em' : '9em'
 })
 </script>
 
@@ -65,9 +62,9 @@ p, a {
 
 .weather-container {
     padding: 1em 1.5em;
-    background-color: v-bind(compBgColour);
+    background-color: v-bind(bgColour);
     max-width: 24em;
-    max-height: 20em;
+    max-height: v-bind(maxHeight);
     border-radius: 15px;
     box-shadow: rgba(99, 99, 99, 0.2) 5px 2px 8px 0px;
 }
@@ -108,7 +105,7 @@ p, a {
 .weather-warning-text {
   color: white;
   display: flex;
-  background-color: v-bind(compWarningColour);
+  background-color: v-bind(warningColour);
   height: 2em;
   padding: 0.2em 0.6em;
   align-items: center;
