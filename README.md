@@ -10,6 +10,10 @@ A small collection of Weather Widgets; Built with Vue.
 
 ![Small](./public/standardplusdaily.png)
 
+### Medium
+
+![Small](./public/medium.png)
+
 ### Small
 
 ![Small](./public/small.png)
