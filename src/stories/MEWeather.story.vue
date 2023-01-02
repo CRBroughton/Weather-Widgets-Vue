@@ -9,7 +9,3 @@ import MEWeather from '../components/MEWeather.vue'
     </Variant>
   </Story>
 </template>
-
-<style scoped>
-
-</style>

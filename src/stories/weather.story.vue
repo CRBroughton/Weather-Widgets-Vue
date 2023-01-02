@@ -12,7 +12,3 @@ import weather from '../components/weather.vue'
     </Variant>
   </Story>
 </template>
-
-<style scoped>
-
-</style>

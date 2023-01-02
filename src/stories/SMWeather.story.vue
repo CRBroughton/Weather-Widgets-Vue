@@ -9,7 +9,3 @@ import SMWeather from '../components/SMWeather.vue'
     </Variant>
   </Story>
 </template>
-
-<style scoped>
-
-</style>

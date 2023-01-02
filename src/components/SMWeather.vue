@@ -19,24 +19,12 @@ const props = defineProps<{ daily?: boolean }>()
 </template>
 
 <style scoped>
-p {
+p, a {
   margin: 0;
   padding: 0;
-}
-.weather-warning {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 0.5em;
-}
-.weather-information {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-.weather-information-icon {
-  width: 80px;
-  height: 80px;
+  font-family: 'Noto Sans Display', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .weather-container {
@@ -44,18 +32,29 @@ p {
     background-color: hsl(0, 10%, 98%);
     width: 14em;
     height: 5em;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    position: relative;
     border-radius: 15px;
-    /* border: 1px solid rgba(99, 99, 99, 0.2); */
-    box-shadow: rgba(99, 99, 99, 0.2) 5px 2px 8px 0px;}
+    box-shadow: rgba(99, 99, 99, 0.2) 5px 2px 8px 0px;
+}
+
+.weather-information {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.weather-information-icon {
+  width: 80px;
+  height: 80px;
+}
+
+.weather-warning {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5em;
+}
 
 .weather-temperature {
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
     font-size: 1.7em;
     font-weight: 500;
 }

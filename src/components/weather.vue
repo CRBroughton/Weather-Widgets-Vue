@@ -16,7 +16,7 @@ const props = defineProps<{ daily?: boolean }>()
             3°
           </p>
           <div class="weather-warning-text">
-            High Temperature
+            <p>High Temperature</p>
           </div>
         </div>
         <p>Thundershower | Lightly Polluted</p>
@@ -40,28 +40,56 @@ const props = defineProps<{ daily?: boolean }>()
 </template>
 
 <style scoped>
-.daily-weather {
+p, a {
+  margin: 0;
+  padding: 0;
+  font-family: 'Noto Sans Display', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.weather-container {
+    padding: 1em 1.5em;
+    background-color: hsl(0, 10%, 98%);
+    max-width: 24em;
+    max-height: 20em;
+    border-radius: 15px;
+    box-shadow: rgba(99, 99, 99, 0.2) 5px 2px 8px 0px;
+}
+
+.weather-location {
+  display: flex;
+  place-items: center;
+  justify-content: space-between;
+}
+
+.weather-information {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.weather-information-icon {
+  width: 120px;
+  height: 120px;
+}
+
+.weather-nested-information {
   display: flex;
   flex-direction: column;
 }
-* {
-  /* outline: 1px solid red; */
-}
-.future-weather-container {
-  display: flex;
-}
 
-.future-weather-container > * {
+.weather-warning {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  width: 100%;
 }
 
-p {
-  margin: 0;
-  padding: 0;
+.weather-temperature {
+    font-size: 3em;
+    font-weight: 500;
 }
+
 .weather-warning-text {
   color: white;
   display: flex;
@@ -71,53 +99,25 @@ p {
   align-items: center;
   border-radius: 15px;
 }
-.weather-warning {
+
+.future-weather-container {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
 }
-.weather-nested-information {
+
+.daily-weather {
   display: flex;
   flex-direction: column;
 }
-.weather-information {
+
+.future-weather-container > * {
   display: flex;
+  justify-content: center;
   align-items: center;
-  justify-content: space-between;
-}
-.weather-information-icon {
-  width: 120px;
-  height: 120px;
+  width: 100%;
 }
 
 .daily-weather-information-icon {
   width: 100px;
   height: 100px;
-}
-
-.weather-location {
-  display: flex;
-  place-items: center;
-  justify-content: space-between;
-}
-.weather-container {
-    padding: 1em 1.5em;
-    background-color: hsl(0, 10%, 98%);
-    max-width: 24em;
-    max-height: 20em;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    position: relative;
-    border-radius: 15px;
-    /* border: 1px solid rgba(99, 99, 99, 0.2); */
-    box-shadow: rgba(99, 99, 99, 0.2) 5px 2px 8px 0px;}
-
-.weather-temperature {
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    font-size: 3em;
-    font-weight: 500;
 }
 </style>
