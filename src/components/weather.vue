@@ -1,7 +1,11 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, onMounted, ref } from 'vue'
+import { weatherStore } from '../store'
 
 interface Props {
+  apikey: string
+  lat: string
+  lon: string
   daily?: boolean
   warningThresholds?: {
     min: number
@@ -13,16 +17,32 @@ interface Props {
 const props = withDefaults(defineProps<Props>(),
   { warningColour: '#ff6600', bgColour: '#faf9f9' })
 
+const { weatherData, fetchWeatherData } = weatherStore()
+const weatherIconURL = ref('')
+const weatherIconFirstDay = ref('')
+const weatherIconSecondDay = ref('')
+const weatherIconThirdDay = ref('')
+
+onMounted(async () => {
+  await fetchWeatherData(props)
+  weatherIconURL.value = `http://openweathermap.org/img/wn/${weatherData.value?.current.weather[0].icon}@4x.png`
+  weatherIconFirstDay.value = `http://openweathermap.org/img/wn/${weatherData.value?.daily[0].weather[0].icon}@4x.png`
+  weatherIconSecondDay.value = `http://openweathermap.org/img/wn/${weatherData.value?.daily[1].weather[0].icon}@4x.png`
+  weatherIconThirdDay.value = `http://openweathermap.org/img/wn/${weatherData.value?.daily[2].weather[0].icon}@4x.png`
+})
+
 const maxHeight = computed(() => {
   return props.daily ? '20em' : '9em'
 })
-const currentTemp = 30
+const currentTemp = computed(() => {
+  return weatherData.value?.current.temp
+})
 
 const dynamicWarningText = computed(() => {
-  if (props.warningThresholds) {
-    if (currentTemp > props.warningThresholds.max)
+  if (props.warningThresholds && currentTemp.value) {
+    if (currentTemp.value > props.warningThresholds.max)
       return 'High'
-    if (currentTemp < props.warningThresholds.min)
+    if (currentTemp.value < props.warningThresholds.min)
       return 'Low'
   }
   return undefined
@@ -32,35 +52,34 @@ const dynamicWarningText = computed(() => {
 <template>
   <div class="weather-container">
     <div class="weather-location">
-      <p>Brighton</p>
       <a href="https://accuweather.com">Accuweather</a>
     </div>
     <div class="weather-information">
-      <img class="weather-information-icon" src="http://openweathermap.org/img/wn/10d@4x.png" alt="Weather icon">
+      <img class="weather-information-icon" :src="weatherIconURL" alt="Weather icon">
       <div class="weather-nested-information">
         <div class="weather-warning">
           <p class="weather-temperature">
-            3°
+            {{ weatherData?.current.temp.toString().slice(0, 2) }}°C
           </p>
           <div v-if="dynamicWarningText" class="weather-warning-text">
             <p>{{ dynamicWarningText }} Temperature</p>
           </div>
         </div>
-        <p>Thundershower | Lightly Polluted</p>
+        <p>{{ weatherData?.current.weather[0].main }} | {{ weatherData?.current.weather[0].description }}</p>
       </div>
     </div>
     <div v-if="daily" class="future-weather-container">
       <div class="daily-weather">
-        <img class="daily-weather-information-icon" src="http://openweathermap.org/img/wn/10d@4x.png" alt="Weather icon">
-        <p>Mon | 15 °</p>
+        <img class="daily-weather-information-icon" :src="weatherIconFirstDay" alt="Weather icon">
+        <p>Mon | {{ weatherData?.daily[0].temp.day.toString().slice(0, 2) }} °C</p>
       </div>
       <div class="daily-weather">
-        <img class="daily-weather-information-icon" src="http://openweathermap.org/img/wn/10d@4x.png" alt="Weather icon">
-        <p>Tue | 15 °</p>
+        <img class="daily-weather-information-icon" :src="weatherIconSecondDay" alt="Weather icon">
+        <p>Tue |{{ weatherData?.daily[1].temp.day.toString().slice(0, 2) }} °C</p>
       </div>
       <div class="daily-weather">
-        <img class="daily-weather-information-icon" src="http://openweathermap.org/img/wn/10d@4x.png" alt="Weather icon">
-        <p>Wed | 15 °</p>
+        <img class="daily-weather-information-icon" :src="weatherIconThirdDay" alt="Weather icon">
+        <p>Wed | {{ weatherData?.daily[2].temp.day.toString().slice(0, 2) }} °C</p>
       </div>
     </div>
   </div>
@@ -86,8 +105,7 @@ p, a {
 
 .weather-location {
   display: flex;
-  place-items: center;
-  justify-content: space-between;
+  justify-content: end;
 }
 
 .weather-information {

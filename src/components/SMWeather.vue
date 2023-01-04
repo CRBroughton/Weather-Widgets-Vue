@@ -1,18 +1,32 @@
 <script setup lang="ts">
-const props = defineProps<{ daily?: boolean }>()
+import { onMounted, ref } from 'vue'
+import { weatherStore } from '../store'
+
+export interface Props {
+  apikey: string
+  lat: string
+  lon: string
+}
+
+const props = defineProps<Props>()
+const { weatherData, fetchWeatherData } = weatherStore()
+const weatherIconURL = ref('')
+
+onMounted(async () => {
+  await fetchWeatherData(props)
+  weatherIconURL.value = `http://openweathermap.org/img/wn/${weatherData.value?.current.weather[0].icon}@4x.png`
+})
 </script>
 
 <template>
   <div class="weather-container">
     <div class="weather-information">
-      <img class="weather-information-icon" src="http://openweathermap.org/img/wn/10d@4x.png" alt="Weather icon">
-      <div class="weather-nested-information">
-        <div class="weather-warning">
-          <p class="weather-temperature">
-            3°
-          </p>
-          <p>Thundershower</p>
-        </div>
+      <img class="weather-information-icon" :src="weatherIconURL" alt="Weather icon">
+      <div class="weather-warning">
+        <p class="weather-temperature">
+          {{ weatherData?.current.temp.toString().slice(0, 2) }}°C
+        </p>
+        <p>{{ weatherData?.current.weather[0].description }}</p>
       </div>
     </div>
   </div>
@@ -30,7 +44,6 @@ p, a {
 .weather-container {
     padding: 1em 1.5em;
     background-color: hsl(0, 10%, 98%);
-    width: 14em;
     height: 5em;
     border-radius: 15px;
     box-shadow: rgba(99, 99, 99, 0.2) 5px 2px 8px 0px;
@@ -39,7 +52,6 @@ p, a {
 .weather-information {
   display: flex;
   align-items: center;
-  justify-content: space-between;
 }
 
 .weather-information-icon {

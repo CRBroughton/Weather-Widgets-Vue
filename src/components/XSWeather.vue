@@ -1,14 +1,28 @@
 <script setup lang="ts">
-const props = defineProps<{ daily?: boolean }>()
+import { onMounted } from 'vue'
+import { weatherStore } from '../store'
+
+export interface Props {
+  apikey: string
+  lat: string
+  lon: string
+}
+
+const props = defineProps<Props>()
+const { weatherData, fetchWeatherData } = weatherStore()
+
+onMounted(async () => {
+  fetchWeatherData(props)
+})
 </script>
 
 <template>
   <div class="weather-container">
     <div class="weather-information">
       <p class="weather-temperature">
-        3°
+        {{ weatherData?.current.temp.toString().slice(0, 2) }}°C
       </p>
-      <p>Thundershower</p>
+      <p>{{ weatherData?.current.weather[0].description }}</p>
     </div>
   </div>
 </template>
@@ -29,7 +43,6 @@ p, a {
 .weather-container {
     padding: 1em 1.5em;
     background-color: hsl(0, 10%, 98%);
-    width: 8.4em;
     height: 2em;
     border-radius: 15px;
     box-shadow: rgba(99, 99, 99, 0.2) 5px 2px 8px 0px;}
