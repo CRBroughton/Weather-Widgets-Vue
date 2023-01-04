@@ -4,20 +4,21 @@ A small collection of Weather Widgets; Built with Vue.
 
 ### Standard
 
-![Small](./public/standard.png)
+<img src="./public/standard.png" alt="standard" width="432"/>
 
 ### Standard + Daily prop
 
-![Small](./public/standardplusdaily.png)
+<img src="./public/standardplusdaily.png" alt="standard & Daily Prop" width="432"/>
+
 
 ### Medium
 
-![Small](./public/medium.png)
+<img src="./public/medium.png" alt="Medium" width="176"/>
 
 ### Small
 
-![Small](./public/small.png)
+<img src="./public/small.png" alt="Small" width="272"/>
 
 ### Extra Small
 
-![Small](./public/extrasmall.png)
+<img src="./public/extrasmall.png" alt="Extra Small" width="182"/>
