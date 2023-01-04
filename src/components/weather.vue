@@ -122,17 +122,19 @@ p, a {
 .weather-nested-information {
   display: flex;
   flex-direction: column;
+  width: 100%;
 }
 
 .weather-warning {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 1em;
 }
 
 .weather-temperature {
-    font-size: 3em;
-    font-weight: 500;
+  font-size: 3em;
+  font-weight: 500;
 }
 
 .weather-warning-text {
