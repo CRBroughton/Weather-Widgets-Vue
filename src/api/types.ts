@@ -1,3 +1,11 @@
+export interface IHttpClient {
+  get<T>(params: IHttpClientRequestParameters): Promise<T>
+}
+
+export interface IHttpClientRequestParameters {
+  url: string
+}
+
 export interface OpenWeatherResponse {
   lat: number
   lon: number
