@@ -2,6 +2,10 @@
 
 A small collection of Weather Widgets; Built with Vue.
 
+## Usage
+
+Supply your OpenWeather API key One call API Key, as well as all required props.
+
 ### Standard
 
 <img src="./public/standard.png" alt="standard" width="432"/>
