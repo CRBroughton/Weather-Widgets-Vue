@@ -4,6 +4,6 @@ import XSWeather from '../components/XSWeather.vue'
 
 <template>
   <Story title="Extra Small Weather Component">
-    <XSWeather />
+    <XSWeather lat="50.828" lon="-0.140" />
   </Story>
 </template>

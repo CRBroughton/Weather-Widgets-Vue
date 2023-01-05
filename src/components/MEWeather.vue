@@ -1,13 +1,39 @@
 <script setup lang="ts">
-const props = defineProps<{ daily?: boolean }>()
+import { onMounted, ref, watch } from 'vue'
+import { weatherStore } from '../store'
+
+export interface Props {
+  apikey?: string
+  lat: string
+  lon: string
+}
+
+const props = defineProps<Props>()
+const { weatherData, fetchWeatherData } = weatherStore()
+const weatherIconURL = ref('')
+
+const setWeatherData = async () => {
+  if (!props.apikey)
+    return
+  await fetchWeatherData(props)
+  weatherIconURL.value = `http://openweathermap.org/img/wn/${weatherData.value?.current.weather[0].icon}@4x.png`
+}
+
+onMounted(async () => {
+  await setWeatherData()
+})
+
+watch(() => props.apikey, async () => {
+  await setWeatherData()
+})
 </script>
 
 <template>
   <div class="weather-container">
     <div class="weather-information">
-      <img class="weather-information-icon" src="http://openweathermap.org/img/wn/10d@4x.png" alt="Weather icon">
+      <img v-if="weatherIconURL" class="weather-information-icon" :src="weatherIconURL" alt="Weather icon">
       <p class="weather-temperature">
-        3°
+        {{ weatherData?.current.temp.toString().slice(0, 2) }}°C
       </p>
     </div>
   </div>

@@ -1,15 +1,8 @@
 <script setup lang="ts">
-import { MEWeather, SMWeather, XSWeather, weather } from './components'
 </script>
 
 <template>
-  <div class="demo-container">
-    <weather :daily="true" />
-    <weather />
-    <MEWeather />
-    <SMWeather />
-    <XSWeather />
-  </div>
+  <div class="demo-container" />
 </template>
 
 <style scoped>

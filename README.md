@@ -1,18 +1,28 @@
-# Vue 3 + TypeScript + Vite
+# Vue Weather Widgets
 
-This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+A small collection of Weather Widgets; Built with Vue.
 
-## Recommended IDE Setup
+## Usage
 
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+Supply your OpenWeather API key One call API Key, as well as all required props.
 
-## Type Support For `.vue` Imports in TS
+### Standard
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin) to make the TypeScript language service aware of `.vue` types.
+<img src="./public/standard.png" alt="standard" width="432"/>
 
-If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has also implemented a [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669) that is more performant. You can enable it by the following steps:
+### Standard + Daily prop
 
-1. Disable the built-in TypeScript Extension
-   1. Run `Extensions: Show Built-in Extensions` from VSCode's command palette
-   2. Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
-2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
+<img src="./public/standardplusdaily.png" alt="standard & Daily Prop" width="432"/>
+
+
+### Medium
+
+<img src="./public/medium.png" alt="Medium" width="176"/>
+
+### Small
+
+<img src="./public/small.png" alt="Small" width="272"/>
+
+### Extra Small
+
+<img src="./public/extrasmall.png" alt="Extra Small" width="182"/>

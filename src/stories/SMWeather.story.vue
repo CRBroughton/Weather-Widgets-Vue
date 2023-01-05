@@ -4,6 +4,8 @@ import SMWeather from '../components/SMWeather.vue'
 
 <template>
   <Story title="Small Weather Component">
-    <SMWeather />
+    <SMWeather
+      lat="50.828" lon="-0.140"
+    />
   </Story>
 </template>
