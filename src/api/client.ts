@@ -2,7 +2,7 @@ import type { OpenWeatherResponse } from './types'
 import { httpClient } from './wrapper'
 
 interface Params {
-  apikey: string
+  apikey?: string
   lat: string
   lon: string
 }
