@@ -13,6 +13,8 @@ const { weatherData, fetchWeatherData } = weatherStore()
 const weatherIconURL = ref('')
 
 const setWeatherData = async () => {
+  if (!props.apikey)
+    return
   await fetchWeatherData(props)
   weatherIconURL.value = `http://openweathermap.org/img/wn/${weatherData.value?.current.weather[0].icon}@4x.png`
 }

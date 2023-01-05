@@ -12,6 +12,8 @@ const props = defineProps<Props>()
 const { weatherData, fetchWeatherData } = weatherStore()
 
 onMounted(async () => {
+  if (!props.apikey)
+    return
   fetchWeatherData(props)
 })
 

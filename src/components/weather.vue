@@ -24,6 +24,8 @@ const weatherIconSecondDay = ref('')
 const weatherIconThirdDay = ref('')
 
 const setWeatherData = async () => {
+  if (!props.apikey)
+    return
   await fetchWeatherData(props)
   weatherIconURL.value = `http://openweathermap.org/img/wn/${weatherData.value?.current.weather[0].icon}@4x.png`
   weatherIconFirstDay.value = `http://openweathermap.org/img/wn/${weatherData.value?.daily[0].weather[0].icon}@4x.png`
