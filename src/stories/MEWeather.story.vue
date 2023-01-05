@@ -4,6 +4,6 @@ import MEWeather from '../components/MEWeather.vue'
 
 <template>
   <Story title="Medium Weather Component">
-    <MEWeather lat="50.828" lon="-0.140" apikey="" />
+    <MEWeather lat="50.828" lon="-0.140" />
   </Story>
 </template>

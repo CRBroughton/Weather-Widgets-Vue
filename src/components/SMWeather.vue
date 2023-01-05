@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import { onMounted, ref } from 'vue'
+import { onMounted, ref, watch } from 'vue'
 import { weatherStore } from '../store'
 
 export interface Props {
-  apikey: string
+  apikey?: string
   lat: string
   lon: string
 }
@@ -12,9 +12,17 @@ const props = defineProps<Props>()
 const { weatherData, fetchWeatherData } = weatherStore()
 const weatherIconURL = ref('')
 
-onMounted(async () => {
+const setWeatherData = async () => {
   await fetchWeatherData(props)
   weatherIconURL.value = `http://openweathermap.org/img/wn/${weatherData.value?.current.weather[0].icon}@4x.png`
+}
+
+onMounted(async () => {
+  await setWeatherData()
+})
+
+watch(() => props.apikey, async () => {
+  await setWeatherData()
 })
 </script>
 

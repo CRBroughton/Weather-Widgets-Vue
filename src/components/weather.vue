@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import { computed, onMounted, ref } from 'vue'
+import { computed, onMounted, ref, watch } from 'vue'
 import { weatherStore } from '../store'
 
 interface Props {
-  apikey: string
+  apikey?: string
   lat: string
   lon: string
   daily?: boolean
@@ -23,12 +23,20 @@ const weatherIconFirstDay = ref('')
 const weatherIconSecondDay = ref('')
 const weatherIconThirdDay = ref('')
 
-onMounted(async () => {
+const setWeatherData = async () => {
   await fetchWeatherData(props)
   weatherIconURL.value = `http://openweathermap.org/img/wn/${weatherData.value?.current.weather[0].icon}@4x.png`
   weatherIconFirstDay.value = `http://openweathermap.org/img/wn/${weatherData.value?.daily[0].weather[0].icon}@4x.png`
   weatherIconSecondDay.value = `http://openweathermap.org/img/wn/${weatherData.value?.daily[1].weather[0].icon}@4x.png`
   weatherIconThirdDay.value = `http://openweathermap.org/img/wn/${weatherData.value?.daily[2].weather[0].icon}@4x.png`
+}
+
+onMounted(async () => {
+  await setWeatherData()
+})
+
+watch(() => props.apikey, async () => {
+  await setWeatherData()
 })
 
 const maxHeight = computed(() => {

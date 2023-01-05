@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import { onMounted } from 'vue'
+import { onMounted, watch } from 'vue'
 import { weatherStore } from '../store'
 
 export interface Props {
-  apikey: string
+  apikey?: string
   lat: string
   lon: string
 }
@@ -13,6 +13,10 @@ const { weatherData, fetchWeatherData } = weatherStore()
 
 onMounted(async () => {
   fetchWeatherData(props)
+})
+
+watch(() => props.apikey, async () => {
+  await fetchWeatherData(props)
 })
 </script>
 
