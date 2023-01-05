@@ -79,15 +79,15 @@ const dynamicWarningText = computed(() => {
     <div v-if="daily" class="future-weather-container">
       <div class="daily-weather">
         <img class="daily-weather-information-icon" :src="weatherIconFirstDay" alt="Weather icon">
-        <p>Mon | {{ weatherData?.daily[0].temp.day.toString().slice(0, 2) }} °C</p>
+        <p>{{ weatherData?.daily[0].temp.day.toString().slice(0, 2) }} °C</p>
       </div>
       <div class="daily-weather">
         <img class="daily-weather-information-icon" :src="weatherIconSecondDay" alt="Weather icon">
-        <p>Tue |{{ weatherData?.daily[1].temp.day.toString().slice(0, 2) }} °C</p>
+        <p>{{ weatherData?.daily[1].temp.day.toString().slice(0, 2) }} °C</p>
       </div>
       <div class="daily-weather">
         <img class="daily-weather-information-icon" :src="weatherIconThirdDay" alt="Weather icon">
-        <p>Wed | {{ weatherData?.daily[2].temp.day.toString().slice(0, 2) }} °C</p>
+        <p>{{ weatherData?.daily[2].temp.day.toString().slice(0, 2) }} °C</p>
       </div>
     </div>
   </div>
