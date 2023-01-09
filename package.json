@@ -1,7 +1,14 @@
 {
   "name": "weather-widget-vue",
-  "private": true,
-  "version": "0.0.0",
+  "version": "0.1.0",
+  "main": "./dist/weather-widget-vue.umd.js",
+  "module": "./dist/weather-widget-vue.es.js",
+  "exports": {
+    ".": {
+      "import": "./dist/weather-widget-vue.es.js",
+      "require": "./dist/weather-widget-vue.umd.js"
+    }
+  },
   "type": "module",
   "scripts": {
     "dev": "vite",
