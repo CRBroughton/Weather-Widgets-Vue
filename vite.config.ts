@@ -9,7 +9,7 @@ export default defineConfig({
     lib: {
       entry: path.resolve(__dirname, 'src/components/index.ts'),
       name: 'weather-widgets-vue',
-      fileName: format => `weather-widgets-vue-${format}.js`,
+      fileName: format => `weather-widget-vue-${format}.js`,
     },
     rollupOptions: {
       external: ['vue'],
