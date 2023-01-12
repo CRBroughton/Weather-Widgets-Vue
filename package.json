@@ -2,7 +2,7 @@
   "name": "weather-widget-vue",
   "author": "Craig R Broughton",
   "description": "A small collection of Weather Widgets; Built with Vue.",
-  "version": "0.1.18",
+  "version": "0.1.19",
   "main": "./dist/weather-widget-vue.umd.js",
   "module": "./dist/weather-widget-vue-es.js",
   "types": "./dist/types/index.d.ts",
