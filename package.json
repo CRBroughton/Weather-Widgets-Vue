@@ -1,15 +1,18 @@
 {
   "name": "weather-widget-vue",
   "author": "Craig R Broughton",
+  "url": "https://crbroughton.me",
   "description": "A small collection of Weather Widgets; Built with Vue.",
+  "keywords": ["vue", "weather", "widget", "widgets", "openweather"],
   "version": "0.1.19",
   "main": "./dist/weather-widget-vue.umd.js",
   "module": "./dist/weather-widget-vue-es.js",
   "types": "./dist/types/index.d.ts",
   "repository": {
     "type": "git",
-    "url": "https://github.com/CRBroughton/weather-widget-vue"
+    "url": "https://github.com/CRBroughton/weather-widget-vue.git"
   },
+  "license": "GPLv2",
   "exports": {
     ".": {
       "import": "./dist/weather-widget-vue-es.js",
