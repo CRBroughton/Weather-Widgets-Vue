@@ -6,6 +6,10 @@
   "main": "./dist/weather-widget-vue.umd.js",
   "module": "./dist/weather-widget-vue-es.js",
   "types": "./dist/types/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/CRBroughton/weather-widget-vue"
+  },
   "exports": {
     ".": {
       "import": "./dist/weather-widget-vue-es.js",
