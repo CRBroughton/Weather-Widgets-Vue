@@ -2,7 +2,7 @@
 import { computed, onMounted, ref, watch } from 'vue'
 import { weatherStore } from '../store'
 
-interface Props {
+export interface Props {
   apikey?: string
   lat: string
   lon: string
