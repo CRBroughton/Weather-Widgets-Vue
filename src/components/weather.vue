@@ -6,6 +6,7 @@ interface Props {
   apikey?: string
   lat: string
   lon: string
+  imperial?: boolean
   daily?: boolean
   warningThresholds?: {
     min: number
@@ -37,7 +38,7 @@ onMounted(async () => {
   await setWeatherData()
 })
 
-watch(() => props.apikey, async () => {
+watch(() => [props.apikey, props.imperial], async () => {
   await setWeatherData()
 })
 
@@ -57,6 +58,10 @@ const dynamicWarningText = computed(() => {
   }
   return undefined
 })
+
+const unitType = computed(() => {
+  return props.imperial ? 'F' : 'C'
+})
 </script>
 
 <template>
@@ -69,7 +74,7 @@ const dynamicWarningText = computed(() => {
       <div class="weather-nested-information">
         <div class="weather-warning">
           <p class="weather-temperature">
-            {{ weatherData?.current.temp.toString().slice(0, 2) }}°C
+            {{ weatherData?.current.temp.toString().slice(0, 2) }}°{{ unitType }}
           </p>
           <div v-if="dynamicWarningText" class="weather-warning-text">
             <p>{{ dynamicWarningText }} Temperature</p>
@@ -81,15 +86,15 @@ const dynamicWarningText = computed(() => {
     <div v-if="daily" class="future-weather-container">
       <div class="daily-weather">
         <img class="daily-weather-information-icon" :src="weatherIconFirstDay" alt="Weather icon">
-        <p>{{ weatherData?.daily[0].temp.day.toString().slice(0, 2) }} °C</p>
+        <p>{{ weatherData?.daily[0].temp.day.toString().slice(0, 2) }} °{{ unitType }}</p>
       </div>
       <div class="daily-weather">
         <img class="daily-weather-information-icon" :src="weatherIconSecondDay" alt="Weather icon">
-        <p>{{ weatherData?.daily[1].temp.day.toString().slice(0, 2) }} °C</p>
+        <p>{{ weatherData?.daily[1].temp.day.toString().slice(0, 2) }} °{{ unitType }}</p>
       </div>
       <div class="daily-weather">
         <img class="daily-weather-information-icon" :src="weatherIconThirdDay" alt="Weather icon">
-        <p>{{ weatherData?.daily[2].temp.day.toString().slice(0, 2) }} °C</p>
+        <p>{{ weatherData?.daily[2].temp.day.toString().slice(0, 2) }} °{{ unitType }}</p>
       </div>
     </div>
   </div>
