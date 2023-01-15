@@ -3,7 +3,13 @@
   "author": "Craig R Broughton",
   "url": "https://crbroughton.me",
   "description": "A small collection of Weather Widgets; Built with Vue.",
-  "keywords": ["vue", "weather", "widget", "widgets", "openweather"],
+  "keywords": [
+    "vue",
+    "weather",
+    "widget",
+    "widgets",
+    "openweather"
+  ],
   "version": "0.2.0",
   "main": "./dist/weather-widget-vue.umd.js",
   "module": "./dist/weather-widget-vue-es.js",
@@ -26,6 +32,8 @@
     "story:dev": "histoire dev",
     "story:build": "histoire build",
     "story:preview": "histoire preview",
+    "changeset": "npx changeset",
+    "changeset:status": "npx changeset status --verbose",
     "check": "NPM_CHECK_INSTALLER=pnpm npm-check -u"
   },
   "dependencies": {
@@ -34,6 +42,7 @@
   },
   "devDependencies": {
     "@antfu/eslint-config": "0.34.1",
+    "@changesets/cli": "^2.26.0",
     "@histoire/plugin-vue": "0.12.4",
     "@vitejs/plugin-vue": "4.0.0",
     "eslint": "8.31.0",
