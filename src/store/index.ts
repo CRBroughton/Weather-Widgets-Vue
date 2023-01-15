@@ -11,7 +11,7 @@ export const weatherStore = () => {
   const fetchWeatherData = async (props: Props) => {
     try {
       const weatherResponse = await weatherApiClient.fetchWeatherData(
-        { apikey: props.apikey, lat: props.lat, lon: props.lon },
+        { apikey: props.apikey, lat: props.lat, lon: props.lon, imperial: props.imperial },
       )
 
       weatherData.value = weatherResponse

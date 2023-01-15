@@ -1,11 +1,12 @@
 <script setup lang="ts">
-import { onMounted, ref, watch } from 'vue'
+import { computed, onMounted, ref, watch } from 'vue'
 import { weatherStore } from '../store'
 
 export interface Props {
   apikey?: string
   lat: string
   lon: string
+  imperial?: boolean
 }
 
 const props = defineProps<Props>()
@@ -23,8 +24,12 @@ onMounted(async () => {
   await setWeatherData()
 })
 
-watch(() => props.apikey, async () => {
+watch(() => [props.apikey, props.imperial], async () => {
   await setWeatherData()
+})
+
+const unitType = computed(() => {
+  return props.imperial ? 'F' : 'C'
 })
 </script>
 
@@ -34,7 +39,7 @@ watch(() => props.apikey, async () => {
       <img class="weather-information-icon" :src="weatherIconURL" alt="Weather icon">
       <div class="weather-warning">
         <p class="weather-temperature">
-          {{ weatherData?.current.temp.toString().slice(0, 2) }}°C
+          {{ weatherData?.current.temp.toString().slice(0, 2) }}°{{ unitType }}
         </p>
         <p>{{ weatherData?.current.weather[0].description }}</p>
       </div>

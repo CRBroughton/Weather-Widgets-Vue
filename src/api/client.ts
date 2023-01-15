@@ -5,6 +5,7 @@ interface Params {
   apikey?: string
   lat: string
   lon: string
+  imperial?: boolean
 }
 
 export class ApiClient {
@@ -14,7 +15,7 @@ export class ApiClient {
 
     return httpClient.get<OpenWeatherResponse>(
       {
-        url: `https://api.openweathermap.org/data/3.0/onecall?lat=${params.lat}8&lon=${params.lon}&units=metric&appid=${params.apikey}`,
+        url: `https://api.openweathermap.org/data/3.0/onecall?lat=${params.lat}&lon=${params.lon}&units=${params.imperial ? 'imperial' : 'metric'}&appid=${params.apikey}`,
       },
     )
   }
