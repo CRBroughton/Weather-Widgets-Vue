@@ -26,14 +26,13 @@
     }
   },
   "scripts": {
-    "dev": "vite",
     "build": "vue-tsc --declaration --emitDeclarationOnly && vite build",
-    "preview": "vite preview",
     "story:dev": "histoire dev",
     "story:build": "histoire build",
     "story:preview": "histoire preview",
     "changeset": "npx changeset",
     "changeset:status": "npx changeset status --verbose",
+    "changeset:version": "npx changeset version",
     "check": "NPM_CHECK_INSTALLER=pnpm npm-check -u"
   },
   "dependencies": {
