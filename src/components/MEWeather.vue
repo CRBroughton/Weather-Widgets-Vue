@@ -31,6 +31,15 @@ watch(() => [props.apikey, props.imperial], async () => {
 const unitType = computed(() => {
   return props.imperial ? 'F' : 'C'
 })
+
+const currentTemperature = computed(() => {
+  const fullTemp = weatherData.value?.current.temp.toString().split('.', 1)
+  if (fullTemp !== undefined) {
+    const [temperature] = fullTemp
+    return temperature
+  }
+  return undefined
+})
 </script>
 
 <template>
@@ -38,7 +47,7 @@ const unitType = computed(() => {
     <div class="weather-information">
       <img v-if="weatherIconURL" class="weather-information-icon" :src="weatherIconURL" alt="Weather icon">
       <p class="weather-temperature">
-        {{ weatherData?.current.temp.toString().slice(0, 2) }}°{{ unitType }}
+        {{ currentTemperature }}°{{ unitType }}
       </p>
     </div>
   </div>

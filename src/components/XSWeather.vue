@@ -24,13 +24,22 @@ watch(() => [props.apikey, props.imperial], async () => {
 const unitType = computed(() => {
   return props.imperial ? 'F' : 'C'
 })
+
+const currentTemperature = computed(() => {
+  const fullTemp = weatherData.value?.current.temp.toString().split('.', 1)
+  if (fullTemp !== undefined) {
+    const [temperature] = fullTemp
+    return temperature
+  }
+  return undefined
+})
 </script>
 
 <template>
   <div class="weather-container">
     <div class="weather-information">
       <p class="weather-temperature">
-        {{ weatherData?.current.temp.toString().slice(0, 2) }}°{{ unitType }}
+        {{ currentTemperature }}°{{ unitType }}
       </p>
       <p>{{ weatherData?.current.weather[0].description }}</p>
     </div>
