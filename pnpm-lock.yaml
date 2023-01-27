@@ -5,7 +5,7 @@ specifiers:
   '@changesets/cli': ^2.26.0
   '@histoire/plugin-vue': 0.12.4
   '@vitejs/plugin-vue': 4.0.0
-  axios: 1.2.3
+  axios: 1.2.5
   eslint: 8.32.0
   histoire: 0.12.4
   npm-check: ^6.0.1
@@ -15,7 +15,7 @@ specifiers:
   vue-tsc: 1.0.24
 
 dependencies:
-  axios: 1.2.3
+  axios: 1.2.5
   vue: 3.2.45
 
 devDependencies:
@@ -1402,8 +1402,8 @@ packages:
   /asynckit/0.4.0:
     resolution: {integrity: sha512-Oei9OH4tRh0YqU3GxhX79dM/mwVgvbZJaSNaRk+bshkj0S5cfHcgYakreBjrHwatXKbz+IoIdYLxrKim2MjW0Q==}
 
-  /axios/1.2.3:
-    resolution: {integrity: sha512-pdDkMYJeuXLZ6Xj/Q5J3Phpe+jbGdsSzlQaFVkMQzRUL05+6+tetX8TV3p4HrU4kzuO9bt+io/yGQxuyxA/xcw==}
+  /axios/1.2.5:
+    resolution: {integrity: sha512-9pU/8mmjSSOb4CXVsvGIevN+MlO/t9OWtKadTaLuN85Gge3HGorUckgp8A/2FH4V4hJ7JuQ3LIeI7KAV9ITZrQ==}
     dependencies:
       follow-redirects: 1.15.2
       form-data: 4.0.0
