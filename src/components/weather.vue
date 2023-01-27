@@ -62,6 +62,15 @@ const dynamicWarningText = computed(() => {
 const unitType = computed(() => {
   return props.imperial ? 'F' : 'C'
 })
+
+const currentTemperature = computed(() => {
+  const fullTemp = weatherData.value?.current.temp.toString().split('.', 1)
+  if (fullTemp !== undefined) {
+    const [temperature] = fullTemp
+    return temperature
+  }
+  return undefined
+})
 </script>
 
 <template>
@@ -74,7 +83,7 @@ const unitType = computed(() => {
       <div class="weather-nested-information">
         <div class="weather-warning">
           <p class="weather-temperature">
-            {{ weatherData?.current.temp.toString().slice(0, 2) }}°{{ unitType }}
+            {{ currentTemperature }}°{{ unitType }}
           </p>
           <div v-if="dynamicWarningText" class="weather-warning-text">
             <p>{{ dynamicWarningText }} Temperature</p>
@@ -86,15 +95,15 @@ const unitType = computed(() => {
     <div v-if="daily" class="future-weather-container">
       <div class="daily-weather">
         <img class="daily-weather-information-icon" :src="weatherIconFirstDay" alt="Weather icon">
-        <p>{{ weatherData?.daily[0].temp.day.toString().slice(0, 2) }} °{{ unitType }}</p>
+        <p>{{ currentTemperature }} °{{ unitType }}</p>
       </div>
       <div class="daily-weather">
         <img class="daily-weather-information-icon" :src="weatherIconSecondDay" alt="Weather icon">
-        <p>{{ weatherData?.daily[1].temp.day.toString().slice(0, 2) }} °{{ unitType }}</p>
+        <p>{{ currentTemperature }} °{{ unitType }}</p>
       </div>
       <div class="daily-weather">
         <img class="daily-weather-information-icon" :src="weatherIconThirdDay" alt="Weather icon">
-        <p>{{ weatherData?.daily[2].temp.day.toString().slice(0, 2) }} °{{ unitType }}</p>
+        <p>{{ currentTemperature }} °{{ unitType }}</p>
       </div>
     </div>
   </div>
