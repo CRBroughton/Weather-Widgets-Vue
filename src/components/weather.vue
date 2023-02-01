@@ -113,6 +113,7 @@ const currentTemperature = computed(() => {
 .weather-container {
     padding: 1em 1.5em;
     background-color: v-bind(bgColour);
+    min-width: 24em;
     max-width: 24em;
     max-height: v-bind(maxHeight);
     border-radius: 15px;
