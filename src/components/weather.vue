@@ -110,14 +110,6 @@ const currentTemperature = computed(() => {
 </template>
 
 <style scoped>
-p, a {
-  margin: 0;
-  padding: 0;
-  font-family: 'Noto Sans Display', system-ui, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
 .weather-container {
     padding: 1em 1.5em;
     background-color: v-bind(bgColour);
