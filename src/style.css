@@ -20,3 +20,7 @@ img, picture, svg, video {
 input, textarea, button, select {
   font: inherit;
 }
+
+.histoire-generic-render-story {
+  padding: 1rem;
+}
