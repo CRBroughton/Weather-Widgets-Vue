@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, onMounted, ref, watch } from 'vue'
+import { computed, onMounted, watch } from 'vue'
 import { weatherStore } from '../store'
 
 export interface Props {
@@ -18,11 +18,15 @@ export interface Props {
 const props = withDefaults(defineProps<Props>(),
   { warningColour: '#ff6600', bgColour: '#faf9f9' })
 
-const { weatherData, fetchWeatherData } = weatherStore()
-const weatherIconURL = ref('')
-const weatherIconFirstDay = ref('')
-const weatherIconSecondDay = ref('')
-const weatherIconThirdDay = ref('')
+const {
+  weatherData,
+  weatherIconURL,
+  weatherIconFirstDay,
+  weatherIconSecondDay,
+  weatherIconThirdDay,
+  fetchWeatherData,
+  currentTemperature,
+} = weatherStore()
 
 const setWeatherData = async () => {
   if (!props.apikey)
@@ -61,15 +65,6 @@ const dynamicWarningText = computed(() => {
 
 const unitType = computed(() => {
   return props.imperial ? 'F' : 'C'
-})
-
-const currentTemperature = computed(() => {
-  const fullTemp = weatherData.value?.current.temp.toString().split('.', 1)
-  if (fullTemp !== undefined) {
-    const [temperature] = fullTemp
-    return temperature
-  }
-  return undefined
 })
 </script>
 

@@ -10,7 +10,11 @@ export interface Props {
 }
 
 const props = defineProps<Props>()
-const { weatherData, fetchWeatherData } = weatherStore()
+const {
+  weatherData,
+  fetchWeatherData,
+  currentTemperature,
+} = weatherStore()
 
 onMounted(async () => {
   if (!props.apikey)
@@ -23,15 +27,6 @@ watch(() => [props.apikey, props.imperial], async () => {
 })
 const unitType = computed(() => {
   return props.imperial ? 'F' : 'C'
-})
-
-const currentTemperature = computed(() => {
-  const fullTemp = weatherData.value?.current.temp.toString().split('.', 1)
-  if (fullTemp !== undefined) {
-    const [temperature] = fullTemp
-    return temperature
-  }
-  return undefined
 })
 </script>
 
