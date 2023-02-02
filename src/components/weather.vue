@@ -71,7 +71,7 @@ const unitType = computed(() => {
 <template>
   <div class="weather-container">
     <div class="weather-location">
-      <a href="https://accuweather.com">Accuweather</a>
+      <a class="openWeatherMapLink" href="https://openweathermap.org/">OpenWeatherMap</a>
     </div>
     <div class="weather-information">
       <img class="weather-information-icon" :src="weatherIconURL" alt="Weather icon">
@@ -178,5 +178,9 @@ const unitType = computed(() => {
 .daily-weather-information-icon {
   width: 100px;
   height: 100px;
+}
+
+.openWeatherMapLink {
+  text-decoration: none;
 }
 </style>
