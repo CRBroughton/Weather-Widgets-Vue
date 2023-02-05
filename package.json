@@ -10,7 +10,7 @@
     "widgets",
     "openweather"
   ],
-  "version": "0.2.1",
+  "version": "0.2.2",
   "main": "./dist/weather-widget-vue.umd.js",
   "module": "./dist/weather-widget-vue-es.js",
   "types": "./dist/types/index.d.ts",
