@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, onMounted, ref, watch } from 'vue'
+import { computed, onMounted, watch } from 'vue'
 import { weatherStore } from '../store'
 
 export interface Props {
@@ -10,8 +10,12 @@ export interface Props {
 }
 
 const props = defineProps<Props>()
-const { weatherData, fetchWeatherData } = weatherStore()
-const weatherIconURL = ref('')
+const {
+  weatherData,
+  weatherIconURL,
+  fetchWeatherData,
+  currentTemperature,
+} = weatherStore()
 
 const setWeatherData = async () => {
   if (!props.apikey)
@@ -31,15 +35,6 @@ watch(() => [props.apikey, props.imperial], async () => {
 const unitType = computed(() => {
   return props.imperial ? 'F' : 'C'
 })
-
-const currentTemperature = computed(() => {
-  const fullTemp = weatherData.value?.current.temp.toString().split('.', 1)
-  if (fullTemp !== undefined) {
-    const [temperature] = fullTemp
-    return temperature
-  }
-  return undefined
-})
 </script>
 
 <template>
@@ -57,14 +52,6 @@ const currentTemperature = computed(() => {
 </template>
 
 <style scoped>
-p, a {
-  margin: 0;
-  padding: 0;
-  font-family: 'Noto Sans Display', system-ui, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
 .weather-container {
     padding: 1em 1.5em;
     background-color: hsl(0, 10%, 98%);

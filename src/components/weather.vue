@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, onMounted, ref, watch } from 'vue'
+import { computed, onMounted, watch } from 'vue'
 import { weatherStore } from '../store'
 
 export interface Props {
@@ -18,11 +18,15 @@ export interface Props {
 const props = withDefaults(defineProps<Props>(),
   { warningColour: '#ff6600', bgColour: '#faf9f9' })
 
-const { weatherData, fetchWeatherData } = weatherStore()
-const weatherIconURL = ref('')
-const weatherIconFirstDay = ref('')
-const weatherIconSecondDay = ref('')
-const weatherIconThirdDay = ref('')
+const {
+  weatherData,
+  weatherIconURL,
+  weatherIconFirstDay,
+  weatherIconSecondDay,
+  weatherIconThirdDay,
+  fetchWeatherData,
+  currentTemperature,
+} = weatherStore()
 
 const setWeatherData = async () => {
   if (!props.apikey)
@@ -62,21 +66,12 @@ const dynamicWarningText = computed(() => {
 const unitType = computed(() => {
   return props.imperial ? 'F' : 'C'
 })
-
-const currentTemperature = computed(() => {
-  const fullTemp = weatherData.value?.current.temp.toString().split('.', 1)
-  if (fullTemp !== undefined) {
-    const [temperature] = fullTemp
-    return temperature
-  }
-  return undefined
-})
 </script>
 
 <template>
   <div class="weather-container">
     <div class="weather-location">
-      <a href="https://accuweather.com">Accuweather</a>
+      <a class="openWeatherMapLink" href="https://openweathermap.org/">OpenWeatherMap</a>
     </div>
     <div class="weather-information">
       <img class="weather-information-icon" :src="weatherIconURL" alt="Weather icon">
@@ -110,17 +105,10 @@ const currentTemperature = computed(() => {
 </template>
 
 <style scoped>
-p, a {
-  margin: 0;
-  padding: 0;
-  font-family: 'Noto Sans Display', system-ui, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
 .weather-container {
     padding: 1em 1.5em;
     background-color: v-bind(bgColour);
+    min-width: 24em;
     max-width: 24em;
     max-height: v-bind(maxHeight);
     border-radius: 15px;
@@ -190,5 +178,9 @@ p, a {
 .daily-weather-information-icon {
   width: 100px;
   height: 100px;
+}
+
+.openWeatherMapLink {
+  text-decoration: none;
 }
 </style>

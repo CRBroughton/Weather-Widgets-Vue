@@ -1,5 +1,20 @@
 # weather-widget-vue
 
+## 0.2.2
+
+### Patch Changes
+
+- 522beb6: update vue to 3.2.47
+- b6dbe09: update axios to 1.3.2
+- 467a3e8: update eslint to 0.35.1
+- d142dba: update typescript to 4.9.5
+- 43363fa: move duplicate computed props to store
+- 6cf999f: set fix width for standard weather
+- 66fd520: fix historie component preview no padding
+- cbc0ac7: set standard weather link to OpenWeatherMap
+- bf523ed: move font-family, margin, padding to global styling
+- 0deeb96: update preview images
+
 ## 0.2.1
 
 ### Patch Changes

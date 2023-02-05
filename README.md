@@ -8,12 +8,12 @@ Supply your OpenWeather API key One call API Key, as well as all required props.
 
 ### Standard
 
-<img src="./public/standard.png" alt="standard" width="432"/>
+<img src="./public/standard.png" alt="standard"/>
 
 
 ### Standard + Daily prop
 
-<img src="./public/standardplusdaily.png" alt="standard & Daily Prop" width="432"/>
+<img src="./public/standardplusdaily.png" alt="standard & Daily Prop"/>
 
 #### Props
 
@@ -51,7 +51,7 @@ interface Props {
 
 ### Small
 
-<img src="./public/small.png" alt="Small" width="272"/>
+<img src="./public/small.png" alt="Small"/>
 
 #### Props
 
@@ -66,7 +66,7 @@ interface Props {
 
 ### Extra Small
 
-<img src="./public/extrasmall.png" alt="Extra Small" width="182"/>
+<img src="./public/extrasmall.png" alt="Extra Small"/>
 
 #### Props
 

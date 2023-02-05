@@ -12,6 +12,12 @@ body {
   min-height: 100vh;
 }
 
+p, a {
+  font-family: 'Noto Sans Display', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 img, picture, svg, video {
   display: block;
   max-width: 100%;
@@ -19,4 +25,8 @@ img, picture, svg, video {
 
 input, textarea, button, select {
   font: inherit;
+}
+
+.histoire-generic-render-story {
+  padding: 1rem;
 }
