@@ -1,5 +1,16 @@
 # weather-widget-vue
 
+## 0.2.3
+
+### Patch Changes
+
+- 74e2206: update vite to 4.1.2
+- baf3143: update vue-tsc to 1.1.3
+- e746951: update eslint to 8.34.0
+- fedb7ac: update axios to 1.3.3
+- 85b2f2b: update histoire to 0.15.4
+- 7761e65: update eslint config to 0.35.2
+
 ## 0.2.2
 
 ### Patch Changes
