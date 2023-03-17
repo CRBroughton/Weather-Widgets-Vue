@@ -7,7 +7,7 @@ specifiers:
   '@vitejs/plugin-vue': 4.1.0
   axios: 1.3.4
   eslint: 8.36.0
-  histoire: 0.15.8
+  histoire: 0.15.9
   npm-check: ^6.0.1
   typescript: 4.9.5
   vite: 4.2.0
@@ -21,10 +21,10 @@ dependencies:
 devDependencies:
   '@antfu/eslint-config': 0.36.0_vgl77cfdswitgr47lm5swmv43m
   '@changesets/cli': 2.26.0
-  '@histoire/plugin-vue': 0.15.8_trxxajhggqi6ul3ehkuuyds7hq
+  '@histoire/plugin-vue': 0.15.8_um6ykffzo3rtsztblu5hrnoiwm
   '@vitejs/plugin-vue': 4.1.0_vite@4.2.0+vue@3.2.47
   eslint: 8.36.0
-  histoire: 0.15.8_vite@4.2.0
+  histoire: 0.15.9_vite@4.2.0
   npm-check: 6.0.1
   typescript: 4.9.5
   vite: 4.2.0
@@ -760,7 +760,7 @@ packages:
       - vite
     dev: true
 
-  /@histoire/plugin-vue/0.15.8_trxxajhggqi6ul3ehkuuyds7hq:
+  /@histoire/plugin-vue/0.15.8_um6ykffzo3rtsztblu5hrnoiwm:
     resolution: {integrity: sha512-7KNZyTiXZOHcOfN3BeZSFjkSnKAIgKBN4hGcpOQ8uB8crWF4J4MIHxmdRns3ysvIIb+QdqfkkWEabenpaQmCcw==}
     peerDependencies:
       histoire: ^0.15.8
@@ -771,7 +771,7 @@ packages:
       '@histoire/vendors': 0.15.8
       change-case: 4.1.2
       globby: 13.1.3
-      histoire: 0.15.8_vite@4.2.0
+      histoire: 0.15.9_vite@4.2.0
       launch-editor: 2.6.0
       pathe: 0.2.0
       vue: 3.2.47
@@ -3209,8 +3209,8 @@ packages:
       js-tokens: 3.0.2
     dev: true
 
-  /histoire/0.15.8_vite@4.2.0:
-    resolution: {integrity: sha512-weDuhDeguNy+9MNTm04OCk2tyJCKndzxp9pcOivxrIeuwmxA1nv7L5bye1YG7gjKWEOuifxRt9VWYAHo2Nc8VA==}
+  /histoire/0.15.9_vite@4.2.0:
+    resolution: {integrity: sha512-Mb9185Sq/SckVhtHpUdf3dqSrAdf9HDsOFbTcBIZ6W9TYCdsSLY5kLzPU2sHaHHM/myxh5DC+9SLBaTFeNJSug==}
     hasBin: true
     peerDependencies:
       vite: ^2.9.0 || ^3.0.0 || ^4.0.0
