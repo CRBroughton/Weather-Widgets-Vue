@@ -42,7 +42,7 @@
   },
   "devDependencies": {
     "@antfu/eslint-config": "0.38.4",
-    "@changesets/cli": "^2.26.0",
+    "@changesets/cli": "^2.26.1",
     "@histoire/plugin-vue": "0.15.8",
     "@vitejs/plugin-vue": "4.1.0",
     "eslint": "8.37.0",

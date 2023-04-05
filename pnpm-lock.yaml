@@ -2,7 +2,7 @@ lockfileVersion: 5.4
 
 specifiers:
   '@antfu/eslint-config': 0.38.4
-  '@changesets/cli': ^2.26.0
+  '@changesets/cli': ^2.26.1
   '@histoire/plugin-vue': 0.15.8
   '@vitejs/plugin-vue': 4.1.0
   axios: 1.3.5
@@ -20,7 +20,7 @@ dependencies:
 
 devDependencies:
   '@antfu/eslint-config': 0.38.4_ip5up2nocltd47wbnuyybe5dxu
-  '@changesets/cli': 2.26.0
+  '@changesets/cli': 2.26.1
   '@histoire/plugin-vue': 0.15.8_yd5buyliuoh4m6rr37ik67autq
   '@vitejs/plugin-vue': 4.1.0_vite@4.2.1+vue@3.2.47
   eslint: 8.37.0
@@ -37,8 +37,8 @@ packages:
     engines: {node: '>=14.0.0'}
     dev: true
 
-  /@antfu/eslint-config-basic/0.38.0_q2zlbzifkdcy7r5dxdjaseoaaq:
-    resolution: {integrity: sha512-YUv7T6wO+fUQWrUBmpMqJZWMexFYZKKfTW2NPQGoeV3FWbZGZPCgMmgQCbn6Oh5HWtNw79YPR8kxUbyoaouSig==}
+  /@antfu/eslint-config-basic/0.38.4_xq5rfih6s2g2p6gwprnxhjjfj4:
+    resolution: {integrity: sha512-QcJ/84eVa7mJD2PEbHw1r7dRg7pHNOvTvkHud+iFYxkDjzcuFMiHFZ7JCYLnuA1NKzeUmczdLFFrHnASxtpV3g==}
     peerDependencies:
       eslint: '>=7.4.0'
     dependencies:
@@ -285,8 +285,8 @@ packages:
       '@changesets/types': 5.2.1
     dev: true
 
-  /@changesets/cli/2.26.0:
-    resolution: {integrity: sha512-0cbTiDms+ICTVtEwAFLNW0jBNex9f5+fFv3I771nBvdnV/mOjd1QJ4+f8KtVSOrwD9SJkk9xbDkWFb0oXd8d1Q==}
+  /@changesets/cli/2.26.1:
+    resolution: {integrity: sha512-XnTa+b51vt057fyAudvDKGB0Sh72xutQZNAdXkCqPBKO2zvs2yYZx5hFZj1u9cbtpwM6Sxtcr02/FQJfZOzemQ==}
     hasBin: true
     dependencies:
       '@babel/runtime': 7.20.7
